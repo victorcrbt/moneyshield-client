@@ -1,7 +1,7 @@
 import React from 'react';
 
-function App() {
-  return <h1>Hello, World!</h1>;
-}
+import Title from '@components/Title';
+
+const App: React.FC = () => <Title />;
 
 export default App;
