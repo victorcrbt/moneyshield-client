@@ -24,6 +24,12 @@ module.exports = {
 
   plugins: ['react', '@typescript-eslint', 'import', 'jsx-a11y', 'react-hooks'],
   rules: {
+    'object-curly-newline': [
+      'error',
+      {
+        ImportDeclaration: { multiline: true, minProperties: 5 },
+      },
+    ],
     'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
     'import/extensions': [
       'error',
@@ -34,6 +40,7 @@ module.exports = {
         jsx: 'never',
       },
     ],
+    indent: 'off',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-member-accessibility': 'off',
