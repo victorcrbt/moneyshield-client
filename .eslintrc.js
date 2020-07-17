@@ -49,6 +49,7 @@ module.exports = {
       'error',
       { devDependencies: ['**/Reactotron.ts'] },
     ],
+    camelcase: 'off',
     'babel/no-unused-expressions': 'off',
     'comma-dangle': [
       'error',
