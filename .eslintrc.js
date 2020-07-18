@@ -41,6 +41,8 @@ module.exports = {
       },
     ],
     indent: 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    'operator-linebreak': ['error', 'after'],
     'import/prefer-default-export': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-member-accessibility': 'off',
