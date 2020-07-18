@@ -107,6 +107,7 @@ const Select: React.FC<InputProps> = ({
 
       {focused && (
         <OptionsContainer
+          rounded={rounded}
           label={!!label}
           ref={optionsContainerRef}
           sizeVariation={sizeVariation}

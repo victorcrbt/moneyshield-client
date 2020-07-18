@@ -82,7 +82,23 @@ export const SelectedOption = styled.div<InputProps>`
 
     return `1px solid ${props.theme.colors.grayLighter}`;
   }};
-  border-radius: ${(props) => (props.rounded ? '4px' : 0)};
+  border-radius: ${(props) => {
+    if (!props.focused && props.rounded) {
+      return '4px';
+    }
+
+    if (!props.focused && props.rounded) {
+      return 0;
+    }
+
+    if (props.focused && props.rounded) {
+      return '4px 4px 0 0';
+    }
+
+    if (props.focused && !props.rounded) {
+      return 0;
+    }
+  }};
 
   cursor: pointer;
 
@@ -93,9 +109,41 @@ export const SelectedOption = styled.div<InputProps>`
 
     transition: transform 400ms;
 
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 8px solid #000;
+    border-left: ${(props) => {
+      if (props.sizeVariation === 'large') {
+        return '6px solid transparent';
+      }
+
+      if (props.sizeVariation === 'medium') {
+        return '6px solid transparent';
+      }
+
+      return '4px solid transparent';
+    }};
+
+    border-right: ${(props) => {
+      if (props.sizeVariation === 'large') {
+        return '6px solid transparent';
+      }
+
+      if (props.sizeVariation === 'medium') {
+        return '6px solid transparent';
+      }
+
+      return '4px solid transparent';
+    }};
+
+    border-top: ${(props) => {
+      if (props.sizeVariation === 'large') {
+        return '6px solid #444';
+      }
+
+      if (props.sizeVariation === 'medium') {
+        return '6px solid #444';
+      }
+
+      return '4px solid #444';
+    }};
 
     transform: ${(props) => (props.focused ? 'rotate(-180deg)' : 'rotate(0)')};
   }
@@ -153,6 +201,8 @@ export const OptionsContainer = styled.div<OptionsContainerProps>`
   animation-name: ${fadeIn};
   animation-duration: 400ms;
 
+  border-bottom-left-radius: ${(props) => (props.rounded ? '4px' : 0)};
+  border-bottom-right-radius: ${(props) => (props.rounded ? '4px' : 0)};
   background: ${(props) => props.theme.colors.white};
   box-shadow: 0 0 1px 1px ${(props) => props.theme.colors.primary};
 
