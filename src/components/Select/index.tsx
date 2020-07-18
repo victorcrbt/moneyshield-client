@@ -85,6 +85,7 @@ const Select: React.FC<InputProps> = ({
       {label && <Label>{label}</Label>}
 
       <SelectedOption
+        rounded={rounded}
         focused={focused}
         sizeVariation={sizeVariation}
         onClick={handleClick}
@@ -106,6 +107,7 @@ const Select: React.FC<InputProps> = ({
 
       {focused && (
         <OptionsContainer
+          label={!!label}
           ref={optionsContainerRef}
           sizeVariation={sizeVariation}
         >

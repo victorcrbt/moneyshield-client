@@ -12,6 +12,7 @@ interface InputProps {
 interface OptionsContainerProps {
   sizeVariation?: 'small' | 'medium' | 'large';
   rounded?: boolean;
+  label?: boolean;
 }
 
 interface OptionProps {
@@ -130,16 +131,16 @@ export const OptionsContainer = styled.div<OptionsContainerProps>`
 
     return `${padding + 1}px`;
   }};
-  top: ${({ sizeVariation }) => {
+  top: ${({ sizeVariation, label }) => {
     if (sizeVariation === 'medium') {
-      return '44px';
+      return label ? '66px' : '44px';
     }
 
     if (sizeVariation === 'large') {
-      return '56px';
+      return label ? '78px' : '56px';
     }
 
-    return '35px';
+    return label ? '58px' : '35px';
   }};
 
   max-height: 200px;
