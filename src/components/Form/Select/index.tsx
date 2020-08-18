@@ -26,7 +26,7 @@ interface Props {
 type InputProps = JSX.IntrinsicElements['input'] & Props;
 
 const Select: React.FC<InputProps> = ({
-  sizeVariation = 'small',
+  sizeVariation = 'medium',
   label,
   error,
   inputRef,

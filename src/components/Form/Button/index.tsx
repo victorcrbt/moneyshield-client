@@ -21,7 +21,7 @@ type ButtonProps = JSX.IntrinsicElements['button'] & Props;
 
 const Button: React.FC<ButtonProps> = ({
   children,
-  sizeVariation = 'small',
+  sizeVariation = 'medium',
   rounded,
   backgroundVariation = 'primary',
   textColorVariation,

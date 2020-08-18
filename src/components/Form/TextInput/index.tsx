@@ -13,7 +13,7 @@ interface Props {
 type InputProps = JSX.IntrinsicElements['input'] & Props;
 
 const TextInput: React.FC<InputProps> = ({
-  sizeVariation = 'small',
+  sizeVariation = 'medium',
   label,
   error,
   inputRef,
