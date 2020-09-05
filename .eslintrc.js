@@ -42,6 +42,7 @@ module.exports = {
     ],
     indent: 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
+    'implicit-arrow-linebreak': 'off',
     'operator-linebreak': [
       'error',
       'after',
