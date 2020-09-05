@@ -1,37 +1,56 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { ThemeProvider } from 'styled-components';
 
-import Select from '@components/Select';
+import InputGroup from '@components/Form/InputGroup';
+import DateInput, { DateType, EventType } from '@components/Form/DateInput';
+import Button from '@components/Form/Button';
 
 import GlobalStyles from './styles/global';
 import mainTheme from './styles/themes/main';
 
-const App: React.FC = () => {
-  const { handleSubmit, register } = useForm();
+const formToObject = (formData: FormData) =>
+  Array.from(formData.entries()).reduce((result, [key, value]) => {
+    return {
+      ...result,
+      [key]: value,
+    };
+  }, {});
 
-  function onSubmit(data: any) {
-    console.log(data);
+const App: React.FC = () => {
+  const [date, setDate] = React.useState('');
+  const { handleSubmit, register, control } = useForm();
+
+  function onSubmit(event: any) {
+    event.preventDefault();
+
+    console.log(date);
+  }
+
+  function handleDateChange(value: DateType, event: EventType) {
+    setDate((value as unknown) as string);
   }
 
   return (
     <ThemeProvider theme={mainTheme}>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Select
-          name="user_id"
-          inputRef={register}
-          sizeVariation="large"
-          options={[
-            { id: 1, name: 'Victor' },
-            { id: 2, name: 'Taila' },
-          ]}
-          valueKeyExtractor="id"
-          optionLabelKeyExtractor="name"
-        />
+      <form onSubmit={onSubmit}>
+        <InputGroup>
+          <Controller
+            name="aeho"
+            control={control}
+            label="aehou"
+            render={(props) => <DateInput {...props} />}
+          />
 
-        {/* <input type="text" name="test" ref={register({ required: true })} /> */}
+          <DateInput
+            onChange={handleDateChange}
+            value={date}
+            name="tester"
+            placeholder="Digite a data do aeho..."
+          />
 
-        <button onClick={() => handleSubmit(onSubmit)}>Clica</button>
+          <Button type="submit">Submit</Button>
+        </InputGroup>
       </form>
 
       <GlobalStyles />
